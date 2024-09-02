@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles2.css">
+    <title>Locadorax</title>
+    <style>
+        .more-info {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .more-info button {
+            background-color: #555;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .more-info button:hover {
+            background-color: #777;
+        }
+
+        .search-bar {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            width: 300px;
+            border-radius: 5px;
+        }
+
+        .search-bar input[type="submit"] {
+            background-color: #555;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .search-bar input[type="submit"]:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <button class="show-menu" onclick="toggleMenu()">☰</button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Catalogo.html">Horror</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <header>
+        <nav class="Titulo">
+            <h1>LOCADORAX</h1>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1></h1>
+        <p>FILMES EM CATAZ</p>
+        <div class="image-box">
+            <img id="product-image" src="Imagem 1.jpeg" alt="Produto" />
+            <button class="next" onclick="nextImage()">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="image-gallery">
+        <h2>Galeria de Imagens</h2>
+        <div class="gallery-container">
+            <img src="filme 3_120x188.jpeg" alt="Imagem 1" />
+            <img src="filme 4_120x178.jpeg" alt="Imagem 2" />
+            <img src="filme 5_120x150.jpeg" alt="Imagem 3" />
+            <img src="filme 6_120x174.jpeg" alt="Imagem 4" />
+            <img src="filme 7_120x175.jpeg" alt="Imagem 5" />
+            <img src="filme 8_120x180 (1).jpeg" alt="Imagem 1" />
+            <img src="filme 9_120x160.jpeg" alt="Imagem 3" />
+            <img src="filme 10_168x251.jpeg" alt="Imagem 4" />
+            <img src="filme 11_263x390.jpeg" alt="Imagem 5" />
+            <img src="filme 13_161x251.jpeg" alt="Imagem 4" />
+            <img src="filme 12_183x251.jpeg" alt="Imagem 5" />
+            <img src="filme 14_161x251.jpeg" alt="Imagem 4" />
+            <img src="filme 15_263x390.jpeg" alt="Imagem 5" />
+        </div>
+    </div>
+
+    <div class="more-info">
+        <h2>Saiba Mais Sobre nossos filmes</h2>
+        <p>Todos os dias um susto.</p>
+        <button onclick="window.location.href='Catalogo.html'">Saiba Mais</button>
+    </div>
+
+    <div class="search-bar">
+        <h2>Pesquisa de filmes</h2>
+        <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="Digite sua pesquisa..." />
+            <input type="submit" value="Pesquisar" />
+        </form>
+    </div>
+
+    <footer>
+        <p>Desenvolvido por Lucas e Christopher</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const images = ["Imagem 1.jpeg", "Imagem 2.jpeg", "Imagem 3.jpeg"];
+        let currentImageIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById("product-image");
+            imageElement.src = images[index];
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
+            showImage(currentImageIndex);
+        }
+    </script>
+
+</body>
+</html>
